@@ -95,6 +95,8 @@ namespace YeelightDesktop
                 }
             }
 
+            bitmap.Dispose();
+
             int averageRed = totalRed / totalPixelArea;
             int averageGreen = totalGreen / totalPixelArea;
             int averageBlue = totalBlue / totalPixelArea;
