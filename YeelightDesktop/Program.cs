@@ -46,17 +46,15 @@ namespace YeelightDesktop
 
         private static void InitiateYeelightDevice (string deviceAddress)
         {
+            int delay = 500;
             yeelightDevice = new Device(deviceAddress);
             yeelightDevice.Connect();
             yeelightDevice.SetPower(true);
-            yeelightDevice.SetRGBColor(255, 255, 0, 200);
-            Thread.Sleep(200);
-            yeelightDevice.SetRGBColor(0, 0, 255, 200);
-            Thread.Sleep(200);
-            yeelightDevice.SetRGBColor(255, 0, 0, 200);
-            Thread.Sleep(200);
-            yeelightDevice.SetRGBColor(255, 255, 255, 200);
-            Thread.Sleep(200);
+            yeelightDevice.SetRGBColor(255, 255, 255, delay);
+            Thread.Sleep(delay);
+            yeelightDevice.SetRGBColor(0, 0, 255, delay);
+            Thread.Sleep(delay);
+            yeelightDevice.SetRGBColor(255, 255, 255, delay);
         }
 
         private static void UpdateLights(object s, ElapsedEventArgs e)
