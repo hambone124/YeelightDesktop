@@ -38,7 +38,7 @@ namespace YeelightDesktop
 
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Elapsed += new ElapsedEventHandler(UpdateLights);
-            timer.Interval = 1000;
+            timer.Interval = 1200;
             timer.Enabled = true;
 
             Console.ReadLine();
@@ -108,7 +108,7 @@ namespace YeelightDesktop
                     color.R,
                     color.G,
                     color.B,
-                    100
+                    1000
                 );
             Console.WriteLine("R: " + color.R);
             Console.WriteLine("G: " + color.G);
