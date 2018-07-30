@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Timers;
 using System.Threading;
 using System.Drawing;
@@ -98,6 +99,18 @@ namespace YeelightDesktop
             int averageRed = totalRed / totalPixelArea;
             int averageGreen = totalGreen / totalPixelArea;
             int averageBlue = totalBlue / totalPixelArea;
+
+            // Normalize values
+            int normalizationLimit = 255;
+            int[] rgbArray = { averageRed, averageGreen, averageBlue };
+            int maxColorValue = rgbArray.Max();
+            if (maxColorValue < normalizationLimit)
+            {
+                int adjustmentValue = normalizationLimit - maxColorValue;
+                averageRed += adjustmentValue;
+                averageGreen += adjustmentValue;
+                averageBlue += adjustmentValue;
+            }
 
             return Color.FromArgb(averageRed,averageGreen,averageBlue);
         }
